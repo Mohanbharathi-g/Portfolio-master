@@ -14,8 +14,6 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setDone(false);
     setNotDone(false);
-
-    setFormData({});
   };
 
   const sendEmail = (e) => {
