@@ -19,22 +19,26 @@ const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs
-      .sendForm(
-        'service_75yvt2w',
-        'template_ara132k',
-        form.current,
-        '3eGQlrWtIzftAS6JH'
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          console.log('message sent');
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+    if (!formData.from_name || !formData.reply_to || !formData.message) {
+      setNotDone(true);
+    } else {
+      emailjs
+        .sendForm(
+          'service_75yvt2w',
+          'template_ara132k',
+          form.current,
+          '3eGQlrWtIzftAS6JH'
+        )
+        .then(
+          (result) => {
+            console.log(result.text);
+            console.log('message sent');
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
+    }
   };
 
   return (
@@ -66,6 +70,12 @@ const Contact = () => {
               placeholder='Message'
               onChange={handleChange}
             />
+            <span className='not-done'>
+              {notDone && 'Please, fill all the input field'}
+            </span>
+            <Button type='submit' className='button' disabled={done}>
+              Send
+            </Button>
             <span className='not-done'>
               {notDone && 'Please, fill all the input field'}
             </span>
