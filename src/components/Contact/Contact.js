@@ -76,12 +76,6 @@ const Contact = () => {
             <Button type='submit' className='button' disabled={done}>
               Send
             </Button>
-            <span className='not-done'>
-              {notDone && 'Please, fill all the input field'}
-            </span>
-            <Button type='submit' className='button' disabled={done}>
-              Send
-            </Button>
             <span className='done'>{done && 'Thanks for Contacting me'}</span>
           </form>
         </Col>
