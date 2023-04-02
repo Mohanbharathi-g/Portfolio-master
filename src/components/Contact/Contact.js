@@ -21,7 +21,6 @@ const Contact = () => {
 
     if (!formData.from_name || !formData.reply_to || !formData.message) {
       setNotDone(true);
-      setDone(true);
     } else {
       emailjs
         .sendForm(
@@ -33,6 +32,7 @@ const Contact = () => {
         .then(
           (result) => {
             console.log(result.text);
+            setDone(true);
             console.log('message sent');
           },
           (error) => {
