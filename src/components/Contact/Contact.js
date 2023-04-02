@@ -21,6 +21,7 @@ const Contact = () => {
 
     if (!formData.from_name || !formData.reply_to || !formData.message) {
       setNotDone(true);
+      setDone(true);
     } else {
       emailjs
         .sendForm(
